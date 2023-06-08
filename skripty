@@ -167,3 +167,12 @@ ________________________________________________
 MINX(
     FILTER(data,data[srazky] > 0),
 data[datum])
+
+_______________________________________________________
+
+18 datum maximalnich srazek ruzyne = 
+CONCATENATEX(
+    FILTER(data,data[lokalita] = "RUZYNE"
+    && data[srazky] = MAXX(FILTER(data,data[lokalita]="RUZYNE"),data[srazky])
+    ),
+data[datum],", ")
