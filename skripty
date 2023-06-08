@@ -140,3 +140,11 @@ COUNTX(
     && data[srazky] = 0
     && NOT ISBLANK(data[srazky])),
 data[datum]),0)
+____________________________________________________
+
+15 pocet mrazivych dnu ruzyne = 
+-- pocet datumu, kdy minimalni_teplota <0 v ruzyni
+COUNTX(
+    FILTER(data,data[minimalni_teplota] < 0
+    && data[lokalita] = "RUZYNE"),
+data[datum])
