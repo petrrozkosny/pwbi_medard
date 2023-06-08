@@ -88,3 +88,18 @@ SUMX(
     data[rok] = MIN(data[rok])
     && data[mesic] = min(data[mesic]) - 1),
 data[srazky])
+
+________________________________________________________________
+
+10 podil srazek mesice na sume srazek roku = 
+
+-- suma srazek v danem mesici a roce
+SUM(data[srazky])
+-- deleno
+/
+-- suma srazek v danem roce 
+SUMX(
+    FILTER(
+        ALL(data),
+    data[rok] = MAX(data[rok])),
+data[srazky])
