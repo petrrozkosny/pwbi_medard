@@ -103,3 +103,19 @@ SUMX(
         ALL(data),
     data[rok] = MAX(data[rok])),
 data[srazky])
+____________________________________________________________
+
+12 nejteplejsi mesic = 
+
+-- Pokud se maximalni teplota daneho roku a mesice rovna 
+-- maximalni teplote daneho roku, tak "nejteplejsi" jinak "ostatni"
+IF(
+-- maximalni maximalni_teplota v danem mesici a roce
+MAX(data[maximalni_teplota])
+=
+-- maximalni maximalni_teplota v danem roce napric mesici
+MAXX(
+    FILTER(
+        ALL(data),
+    data[rok] = MAX(data[rok])),
+data[maximalni_teplota]), "nejteplejsi","ostatni")
