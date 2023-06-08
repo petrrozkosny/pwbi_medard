@@ -1,0 +1,25 @@
+
+cv01 minimalni datum: Minimální datum v daném měsíci a roce
+cv02 minimalni datum vse: Minimalni datum bez ohledu na rok a měsíc
+cv03 minimalni datum ruzyne: Minimální datum v daném roce, měsíci, lokalitě RUZYNE
+cv04 minimalni datum rok: Minimální datum v daném roce bez ohledu na měsíc
+cv05 minimalni datum predchozi rok: Minimální datum ve stejném měsíci předchozího roku
+
+cv06 suma srazek: Suma srážek v daném roce a měsíci
+cv07 suma srazek predchozi rok: Suma srážek ve stejném měsíci předchozího roku
+cv08 suma srazek kumulativne: Suma srážek v daném roce, v měsících rovnající se či menší danému měsíci (tj. YTD)
+cv09 pocet tropickych dnu ruzyne: Počet datumů v daném měsíci a roce, kdy v lokalitě RUZYNE byla maximalni_teplota > 30
+
+=======================================================================================================================
+
+Vizuál typu průřez s hodnotami z data[lokalita] (omezit na jediný výběr)
+Vizuál typu průřez s hodnotami z data[rok] (omezit na jediný výběr)
+Vizuál typu skládaný sloupcový graf:
+cv10 maximalni teplota: Maximální teplota v daném měsici, roce, lokalitě
+cv11 pf maximalni teplota: Pokud se maximální teplota v daném měsíci, roce a lokalitě rovná maximální
+teplotě v dané lokalitě a roce (bez ohledu na měsíc), barva "tomato"
+cv12 pf nazev grafu: Vývoj maximální teploty v roce {vybraný rok} a lokalitě {vybraná lokalita}
+
+Stránka typu popis dosazená na sloupcový graf, popis bude obsahovat vizuál typu tabulka a do ní dosazeno
+data[datum]
+data[maximalni_teplota]
