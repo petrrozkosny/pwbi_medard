@@ -71,3 +71,9 @@ _______________________________________________________________
 07 pocet datumu se srazkami = 
 -- v danem mesici, roce, kolikrát srazky > 0
 COUNTX(FILTER(data,data[srazky] > 0),data[datum])
+
+______________________________________________________________________
+
+08 pocet datumu pro ruzyni = 
+-- kolikrát v daném měsíci a roce ruzyne poskytla data
+COUNTX(FILTER(data,data[lokalita] = "RUZYNE"),data[datum])
