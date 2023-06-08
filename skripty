@@ -77,3 +77,14 @@ ______________________________________________________________________
 08 pocet datumu pro ruzyni = 
 -- kolikrát v daném měsíci a roce ruzyne poskytla data
 COUNTX(FILTER(data,data[lokalita] = "RUZYNE"),data[datum])
+
+___________________________________________________________________
+
+09 suma srazek predchoziho mesice daneho roku = 
+
+SUMX(
+    FILTER(
+        ALL(data),
+    data[rok] = MIN(data[rok])
+    && data[mesic] = min(data[mesic]) - 1),
+data[srazky])
