@@ -55,3 +55,8 @@ SUMX(
 data[srazky])
 
 _______________________________
+
+05 suma srazek ruzyne = 
+SUMX(FILTER(data,data[lokalita] = "RUZYNE"),data[srazky])
+
+_________________________________________________________________
