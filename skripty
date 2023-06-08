@@ -127,3 +127,16 @@ COUNTX(
     FILTER(data,
         data[maximalni_teplota] =  MAX(data[maximalni_teplota])),
 data[datum])
+
+____________________________________________________
+
+14 pocet tropickych dnu ruzyne = 
+-- pocet datumu, kdy v ruzyni byla maximalni_teplota > 30 a srazky = 0
+MAX(
+COUNTX(
+    FILTER(data,
+    data[lokalita] = "RUZYNE"
+    && data[maximalni_teplota] > 30
+    && data[srazky] = 0
+    && NOT ISBLANK(data[srazky])),
+data[datum]),0)
