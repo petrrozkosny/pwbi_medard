@@ -159,3 +159,11 @@ FILTER(
 data[rok] = MIN(data[rok]) - 1
 && data[mesic] = min(data[mesic])),
 data[srazky])
+
+________________________________________________
+
+17 datum poprve prselo = 
+-- minimalni datum v danem mesici, roce, kdy srazky > 0
+MINX(
+    FILTER(data,data[srazky] > 0),
+data[datum])
