@@ -60,3 +60,8 @@ _______________________________
 SUMX(FILTER(data,data[lokalita] = "RUZYNE"),data[srazky])
 
 _________________________________________________________________
+
+06 suma srazek v poslednim datumu mesice = 
+SUMX(
+FILTER(data,data[datum] = MAX(data[datum])),
+data[srazky])
