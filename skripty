@@ -119,3 +119,11 @@ MAXX(
         ALL(data),
     data[rok] = MAX(data[rok])),
 data[maximalni_teplota]), "nejteplejsi","ostatni")
+
+______________________________________________________________
+
+13 pocet datumu maximalni teploty v danem mesici a roce = 
+COUNTX(
+    FILTER(data,
+        data[maximalni_teplota] =  MAX(data[maximalni_teplota])),
+data[datum])
