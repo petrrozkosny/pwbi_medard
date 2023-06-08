@@ -65,3 +65,9 @@ _________________________________________________________________
 SUMX(
 FILTER(data,data[datum] = MAX(data[datum])),
 data[srazky])
+
+_______________________________________________________________
+
+07 pocet datumu se srazkami = 
+-- v danem mesici, roce, kolikrát srazky > 0
+COUNTX(FILTER(data,data[srazky] > 0),data[datum])
