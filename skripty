@@ -148,3 +148,14 @@ COUNTX(
     FILTER(data,data[minimalni_teplota] < 0
     && data[lokalita] = "RUZYNE"),
 data[datum])
+
+_______________________________________________________________
+
+16 suma srazek predchozi rok = 
+-- suma srazek ve stejnem mesici predchoziho roku
+SUMX(
+FILTER(
+    ALL(data),
+data[rok] = MIN(data[rok]) - 1
+&& data[mesic] = min(data[mesic])),
+data[srazky])
