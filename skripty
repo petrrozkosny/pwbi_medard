@@ -219,3 +219,15 @@ _____________________________
 -- v dane lokalite, roce
 
 AVERAGEX(FILTER(ALL(data),data[lokalita] = SELECTEDVALUE(data[lokalita]) && data[rok] = SELECTEDVALUE(data[rok])),data[srazky])
+
+_____________________________________
+
+24 pocet vyskytu = 
+COUNTX(
+FILTER(
+    ADDCOLUMNS(
+    ALL(
+        data[lokalita],data[rok]),
+   "rocni srazky",CALCULATE(SUM(data[srazky]))),
+[rocni srazky] > SELECTEDVALUE(parametr_srazky[parametr_srazky])),
+data[lokalita])
