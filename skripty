@@ -231,3 +231,14 @@ FILTER(
    "rocni srazky",CALCULATE(SUM(data[srazky]))),
 [rocni srazky] > SELECTEDVALUE(parametr_srazky[parametr_srazky])),
 data[lokalita])
+
+_______________________________________
+
+cv11 max teplota mesic = 
+VAR max_teplota = max(data[maximalni_teplota])
+VAR max_teplota_mesic = 
+MAXX(FILTER(ALL(data),data[lokalita] = SELECTEDVALUE(data[lokalita]) && data[mesic] = SELECTEDVALUE(data[mesic])),data[maximalni_teplota])
+
+RETURN
+IF(max_teplota = max_teplota_mesic,"CYAN")
+
