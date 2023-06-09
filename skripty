@@ -176,3 +176,46 @@ CONCATENATEX(
     && data[srazky] = MAXX(FILTER(data,data[lokalita]="RUZYNE"),data[srazky])
     ),
 data[datum],", ")
+
+__________________________________
+
+19 pf maximalni teplota = 
+-- v danem roce, lokalite
+VAR maximalni_teplota = MAX(data[maximalni_teplota])
+-- maximalni teplota napric roky, v dane lokalite
+VAR maximalni_teplota_vsechny_roky = 
+
+MAXX(
+    FILTER(
+        ALL(data)
+        ,data[lokalita] = SELECTEDVALUE(data[lokalita])),
+data[maximalni_teplota])
+
+RETURN
+IF(maximalni_teplota = maximalni_teplota_vsechny_roky,"TOMATO")
+
+______________________________
+
+20 cf nazev grafu = 
+
+SWITCH(TRUE(),
+HASONEFILTER(data[lokalita]), "Maximalni teploty v lokalite "&SELECTEDVALUE(data[lokalita]),
+ISFILTERED(data[lokalita]),"Maximalni teploty v lokalitach" & CONCATENATEX(DISTINCT(data[lokalita]),data[lokalita]," ,"),
+"Maximalni teploty za vsechny lokality")
+
+____________________________________
+
+21 prumerne srazky v roce a lokalite = 
+
+-- napric mesici
+
+
+AVERAGEX(FILTER(ALL(data),data[lokalita] = SELECTEDVALUE(data[lokalita])),data[srazky])
+
+_____________________________
+
+22 prumerne srazky napric mesici = 
+
+-- v dane lokalite, roce
+
+AVERAGEX(FILTER(ALL(data),data[lokalita] = SELECTEDVALUE(data[lokalita]) && data[rok] = SELECTEDVALUE(data[rok])),data[srazky])
